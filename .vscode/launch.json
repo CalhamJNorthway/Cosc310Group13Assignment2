@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - UserInput",
+            "request": "launch",
+            "mainClass": "UserInput"
+        }
+    ]
+}
