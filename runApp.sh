@@ -1,3 +1,3 @@
 cd src
-javac UserInput.java
-java UserInput
+javac Main.java
+java Main
