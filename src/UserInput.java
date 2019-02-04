@@ -1,15 +1,31 @@
-import java.util.Scanner;;
+import java.util.Scanner;
 
 public class UserInput {
-public static void main(String[] args) {
-    Scanner in = new Scanner(System.in);
-    
-    System.out.print("input your name:");
-    String userName = in.nextLine();
-    System.out.println("Hello " + userName +"!");
-    System.out.println("you cutie ;)");
+    public UserInput() {
 
-    in.close();
-}
+    }
+
+    public void writeInput() {
+        System.out.println("Type a user name!");
+        Scanner in = new Scanner(System.in);
+        while (in.hasNextLine()) {
+            String userAnswer = in.nextLine().toLowerCase();
+            if (!userAnswer.equals("quit"))
+                System.out.println(userAnswer + ", how may I help you? To exit, simply type 'Quit'");
+
+            if (userAnswer.equals("quit") || userAnswer.equals("Quit"))
+                break;
+            else {
+                System.out.println("Users answer: " + userAnswer);
+            }
+        }
+        in.close();
+    }
+
+    public static void main(String[] args) {
+        UserInput user = new UserInput();
+        user.writeInput();
+
+    }
 
 }
