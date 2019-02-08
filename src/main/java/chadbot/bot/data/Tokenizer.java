@@ -4,7 +4,7 @@ public class Tokenizer {
 
     public static String[] parseInput (String input) {
         if(input != null && input != "" && input != " ") {
-            return input.split(".", ",", "!", " ", "?", ";");
+            return input.split("\\W+");
         }
         return null;
     }
