@@ -1,3 +1,8 @@
 cd src
-javac UserInput.java
-java UserInput
+cd main
+cd java
+cd chadbot
+javac -d target/classes Main.java
+cd target
+cd classes
+java chadbot.Main
