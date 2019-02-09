@@ -1,11 +1,13 @@
+package chadbot;
 import java.util.Scanner;
+
 
 public class UserInput {
     public UserInput() {
 
     }
 
-    public String writeInput() {
+    public static String writeInput() {
         System.out.println("Type a user name!");
         Scanner in = new Scanner(System.in);
         while (in.hasNextLine()) {
