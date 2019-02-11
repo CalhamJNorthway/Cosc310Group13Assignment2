@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1a772cb-e88e-469b-9fe7-c7af63864ec7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/UserInputTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInput.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInput.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInput.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/production/Cosc310Group13Assignment2/chadbot/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/production/Cosc310Group13Assignment2/chadbot/bot/data/ResponseTemplate.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/production/Cosc310Group13Assignment2/chadbot/bot/data/Tokenizer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/production/Cosc310Group13Assignment2/chadbot/bot/dictionarytree/DictionaryTree.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/production/Cosc310Group13Assignment2/chadbot/bot/dictionarytree/TreeNode.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/test/Cosc310Group13Assignment2/chadbot/MainTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/test/Cosc310Group13Assignment2/chadbot/bot/dictionarytree/DictionaryTreeTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/classes/test/Cosc310Group13Assignment2/chadbot/bot/tokenizer/TokenizerTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/chadbot/bot/data/TextUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/chadbot/bot/tokenizer/TokenizerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runApp.sh" beforeDir="false" afterPath="$PROJECT_DIR$/runApp.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chadbot/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chadbot/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chadbot/bot/data/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chadbot/bot/data/Tokenizer.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,19 +30,43 @@
         <entry file="file://$PROJECT_DIR$/Cosc310Group13Assignment2.iml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+              <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/UserInputTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+            <state relative-caret-position="150">
+              <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/chadbot/bot/tokenizer/TokenizerTest.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chadbot/Main.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chadbot/bot/data/Tokenizer.java">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/UserInput.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -50,16 +84,7 @@
         <entry file="file://$PROJECT_DIR$/src/UserInput.class">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="103">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/UserInput.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -87,7 +112,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="20" />
     <option name="y" value="42" />
     <option name="width" value="1400" />
@@ -110,6 +135,86 @@
               <item name="Cosc310Group13Assignment2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Cosc310Group13Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cosc310Group13Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cosc310Group13Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cosc310Group13Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cosc310Group13Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cosc310Group13Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chadbot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cosc310Group13Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cosc310Group13Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chadbot" type="462c0819:PsiDirectoryNode" />
+              <item name="bot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cosc310Group13Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cosc310Group13Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chadbot" type="462c0819:PsiDirectoryNode" />
+              <item name="bot" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cosc310Group13Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cosc310Group13Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cosc310Group13Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cosc310Group13Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cosc310Group13Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cosc310Group13Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chadbot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cosc310Group13Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cosc310Group13Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chadbot" type="462c0819:PsiDirectoryNode" />
+              <item name="bot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Cosc310Group13Assignment2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Cosc310Group13Assignment2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chadbot" type="462c0819:PsiDirectoryNode" />
+              <item name="bot" type="462c0819:PsiDirectoryNode" />
+              <item name="tokenizer" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -119,7 +224,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549918922336" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549926360150" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunAnythingCache">
@@ -153,10 +258,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="42" width="1400" height="785" extended-state="0" />
+    <frame x="20" y="42" width="1400" height="785" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2496318" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2496318" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -165,7 +270,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32900432" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32900432" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -200,7 +305,14 @@
     <entry file="file://$PROJECT_DIR$/src/UserInput.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="103">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Cosc310Group13Assignment2.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -211,22 +323,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cosc310Group13Assignment2.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/UserInputTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="27" column="25" lean-forward="true" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+        <state relative-caret-position="150">
+          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/chadbot/bot/tokenizer/TokenizerTest.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chadbot/Main.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chadbot/bot/data/Tokenizer.java">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
