@@ -36,6 +36,7 @@ class DictionaryTreeTest {
         template3 = null;
     }
 
+    //Test the List Constructor for DictionaryTree
     @Test
     void testListConstructor() {
         List<ResponseTemplate> responseTemplates = new ArrayList<>();
@@ -81,8 +82,9 @@ class DictionaryTreeTest {
         }
     }
 
+    //Tests the String Array Constructor for Dictionary Tree. Checks to see if each node is added
     @Test
-    void testBuildingTree() {
+    void testStringArrayConstructor() {
         DictionaryTree dictionaryTree = new DictionaryTree(new ResponseTemplate[] {template1, template2, template3});
 
         TreeNode root = dictionaryTree.getRoot();
@@ -124,6 +126,7 @@ class DictionaryTreeTest {
         }
     }
 
+    //Tests if that no duplicate prompts are added top the tree
     @Test
     void testDuplicatesInserts() {
         DictionaryTree dictionaryTree = new DictionaryTree(new ResponseTemplate[] {template1, template1, template3});
@@ -131,6 +134,7 @@ class DictionaryTreeTest {
         testExistenceOfRootChildren(dictionaryTree);
     }
 
+    //Tests if there is a null Response Template inserted into the tree. No exception should be thrown
     @Test
     void testNullResponseTemplateInsert() {
         DictionaryTree dictionaryTree = new DictionaryTree(new ResponseTemplate[] {template1, null, template3});
@@ -138,6 +142,8 @@ class DictionaryTreeTest {
         testExistenceOfRootChildren(dictionaryTree);
     }
 
+    //Tests if the Prompt in the Response Template that is inserted is null and doesn't get inserted into the tree. No
+    //Exception should be thrown
     @Test
     void testNullPromptInResponseTemplateInsert() {
         DictionaryTree dictionaryTree = new DictionaryTree(new ResponseTemplate[] {template1,
@@ -146,6 +152,7 @@ class DictionaryTreeTest {
         testExistenceOfRootChildren(dictionaryTree);
     }
 
+    //Tests if no Response Template is inserted into the tree
     @Test
     void testEmptyResponseTemplatesInserts() {
         DictionaryTree dictionaryTree = new DictionaryTree(new ResponseTemplate[0]);
@@ -155,12 +162,80 @@ class DictionaryTreeTest {
         assertEquals(0, root.getChildCount());
     }
 
+    //Tests if the prompt is empty in the Response template that is inserted. No exception should be thrown
     @Test
     void testEmptyPromptInResponseTemplateInsert() {
         DictionaryTree dictionaryTree = new DictionaryTree(new ResponseTemplate[] {template1,
                 new ResponseTemplate(new String[0], null), template3});
 
         testExistenceOfRootChildren(dictionaryTree);
+    }
+
+    //Test if all responses used in the creation of the tree can be found in the tree when searched with the
+    //correct prompt
+    @Test
+    void searchResponseFound() {
+        DictionaryTree dictionaryTree = new DictionaryTree(new ResponseTemplate[] {template1, template2, template3});
+
+        String actualResponse = dictionaryTree.search(template1.getPrompt());
+        assertEquals(response1, actualResponse);
+
+        actualResponse = dictionaryTree.search(template2.getPrompt());
+        assertEquals(response2, actualResponse);
+
+        actualResponse = dictionaryTree.search(template3.getPrompt());
+        assertEquals(response3, actualResponse);
+    }
+
+    //Test if no response is found. Should return DictionaryTree.NO_RESPONSE
+    @Test
+    void searchResponseNoFound() {
+        DictionaryTree dictionaryTree = new DictionaryTree(new ResponseTemplate[] {template1, template2, template3});
+
+        String[] prompt = {"Will", "you", "be", "my", "only", "friend"};
+        String actualResponse = dictionaryTree.search(prompt);
+        assertEquals(DictionaryTree.NO_RESPONSE, actualResponse);
+    }
+
+    //Test if no response is found with a prompt that is longer than the height of the tree.
+    //Should return DictionaryTree.NO_RESPONSE
+    @Test
+    void searchPromptExtremelyLong() {
+        DictionaryTree dictionaryTree = new DictionaryTree(new ResponseTemplate[] {template1, template2, template3});
+
+        String[] prompt = {"Will", "you", "be", "my", "only", "friend", "Will", "you", "be", "my", "only", "friend"};
+        String actualResponse = dictionaryTree.search(prompt);
+        assertEquals(DictionaryTree.NO_RESPONSE, actualResponse);
+    }
+
+    //Test if no response is found with a prompt that is shorter than an actual prompt that can result in a found
+    //response. Should return DictionaryTree.NO_RESPONSE
+    @Test
+    void searchPromptShortOfLeafNode() {
+        DictionaryTree dictionaryTree = new DictionaryTree(new ResponseTemplate[] {template1, template2, template3});
+
+        String[] prompt = {"This", "is", "a", "test"};
+        String actualResponse = dictionaryTree.search(prompt);
+        assertEquals(DictionaryTree.NO_RESPONSE, actualResponse);
+    }
+
+    //Test if the prompt is null. Should return DictionaryTree.NO_RESPONSE
+    @Test
+    void searchNullPrompt() {
+        DictionaryTree dictionaryTree = new DictionaryTree(new ResponseTemplate[] {template1, template2, template3});
+
+        String actualResponse = dictionaryTree.search(null);
+        assertEquals(DictionaryTree.NO_RESPONSE, actualResponse);
+    }
+
+    //Test if the prompt is empty. Should return DictionaryTree.NO_RESPONSE
+    @Test
+    void searchEmptyPrompt() {
+        DictionaryTree dictionaryTree = new DictionaryTree(new ResponseTemplate[] {template1, template2, template3});
+
+        String[] prompt = {};
+        String actualResponse = dictionaryTree.search(prompt);
+        assertEquals(DictionaryTree.NO_RESPONSE, actualResponse);
     }
 
     private void testExistenceOfRootChildren(DictionaryTree dictionaryTree) {
@@ -171,4 +246,5 @@ class DictionaryTreeTest {
         assertNotNull(root.getChild("This"));
         assertNotNull(root.getChild("What"));
     }
+
 }
