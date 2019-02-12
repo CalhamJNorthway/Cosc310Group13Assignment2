@@ -16,7 +16,17 @@ class MainTest {
     void tearDown() {
     }
 
+
     @Test
-    void run() {
+    void closeChatTrue() {
+        Main main = new Main();
+        assertTrue(main.closeChat("quit"));
+        assertTrue(main.closeChat("Quit"));
+    }
+
+    @Test
+    void closeChatFalse() {
+        Main main = new Main();
+        assertFalse(main.closeChat("This is a test String that shouldn't return true"));
     }
 }
