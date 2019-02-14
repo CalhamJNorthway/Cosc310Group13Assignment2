@@ -24,4 +24,13 @@ public class UserInput {
         return("quit");
     }
 
+    public void defaultResponse(String response) {
+        if (response == null || response.equals("") || response.equals(" ")) {
+            System.out.println("Sorry, I don't understand this. Can you try again? ");
+        } else {
+            System.out.println(response);
+            UserInput.writeInput();
+        }
+    }
+
 }
