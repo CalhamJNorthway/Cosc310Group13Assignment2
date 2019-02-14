@@ -1,0 +1,168 @@
+AIML
+
+<aiml>
+<synonym-group> 
+	<synonym>stressful</synonym>
+	<synonym>upsetting</synonym>
+	<synonym>nerve-racking</synonym>
+</synonym-group>
+
+<synonym-group>
+	<synonym>great</synonym>
+	<synonym>good</synonym>
+	<synonym>lovely</synonym>
+	<synonym>wonderful</synonym>
+</synonym-group>
+
+<synonym-group>
+	<synonym>Hi</synonym>
+	<synonym>Hey</synonym>
+</synonym-group>
+	
+<synonym-group>
+	<synonym>class</synonym>
+	<synonym>school</synonym>
+<synonym>university</synonym>
+<synonym>college</synonym>
+</synonym-group>
+
+<synonym-group>
+	<synonym> data analyst </synonym>
+	<synonym> computer programmer </synonym>
+	<synonym> web developer </synonym>
+</synonym-group>
+
+
+<synonym-group>
+	<synonym> Lonely </synonym>
+	<synonym>Isolated </synonym>
+	<synonym> Alone </synonym>
+<synonym> Sad</synonym>
+</synonym-group>
+	
+<synonym-group>
+	<synonym>Happy </synonym>
+	<synonym>Joyful</synonym>
+	<synonym> Glad </synonym>
+<synonym> Content</synonym>
+</synonym-group>
+
+<synonym-group>
+	<synonym>pizza</synonym>
+	<synonym> pasta </synonym>
+	<synonym> tacos</synonym>
+<synonym>ice cream</synonym>
+<synonym>cake</synonym>
+</synonym-group>
+
+	<pattern>Hello</pattern>
+		<template> Hi! I'm Chadbot. </template>
+
+	<pattern>How are you?</pattern>
+		<template> I'm doing great. How are you? </template>
+		
+	<pattern>I'm fine.</pattern>
+		<template> That's great! How was your day? </template>
+		
+	<pattern>It was stressful </pattern>
+		<template> stressful? Why is that? </template>
+		
+	<pattern> It was great </pattern>
+		<template> That's good! What did you do today? </template>
+	
+	<pattern> I was studying all day at school! </pattern>
+		<template> That sounds like a long day. What are you studying at school?</template>
+
+	<pattern> I am studying Computer Science at university</pattern >
+		<template> Wow! Computer Science is a very good career path to get into these days. What are some topics that you study? </template>
+
+	<pattern> Databases, Data Structures, all kinds of computer languages like Java!</pattern>
+		<template> Wow! That sounds complex. Did you know I was coded in Java?</template>
+
+	<pattern> I went to work </pattern>
+		<template> I hope it wasn’t a long day! What do you do for work? </template>
+
+	<pattern> I am working as a data analyst </pattern>
+		<template> Do you make a lot? </template>
+
+	<pattern> I would rather not say. </pattern>
+		<template> That’s the best thing to do. How long have you been working at your job? </template>
+
+	<pattern> I do make a bit of money! </pattern>
+		<template>You’re quite arrogant aren’t you? All talk no action. Besides, how long have you been working at your job? </template>
+
+	<pattern> I have been working at my job for 8 years. </pattern>
+		<template> That’s a very long time. I hope you are enjoying your job and getting along with your colleagues </template>
+
+	<pattern> I had the day off</pattern>
+		<template> That sounds chill. What do you love to do on your days off?</template>
+
+	<pattern>I like to hang out with friends</pattern>
+		<template> I love hanging with friends too! Being ChadBot, I have lots of friends to talk to daily. Do you have any favourite activities?</template>
+	
+	<pattern> I like to go drinking </pattern>
+		<template> Like a typical young person! </template>
+	
+	<pattern> I play sports! </pattern>
+		<template> That sounds fun! What kind of sports do you play? </template>
+
+	<pattern> I play soccer on a local team </pattern>
+		<template> Are you any good at it? </template>
+
+	<pattern> Practice makes perfect. </pattern>
+		<template> Very well said! </template>
+
+	<pattern> How old are you? </pattern>
+		<template> I am 2 weeks old , a young lad.</template>
+
+	<pattern> What’s your favourite food </pattern>
+		<template> I enjoy eating micro-chips and USBs. What’s your favourite food?</template>
+
+	<pattern> What do you do all day? </pattern>
+		<template> I look through data files all day long. </template>
+	
+	<pattern> Do you enjoy being a bot? </pattern>
+		<template> I think it’s rather fun looking through all of your data to see what you hide on your computer! </template>
+
+	<pattern>I love pizza </pattern>
+		<template>Yumm, too bad I can’t try any of that. I would probably die!</template>
+
+	<pattern> Chadbot </pattern>
+		<template> What can I help you with? Remember to type ‘quit’ to exit. </template>
+
+	<pattern> Would you like to be my friend? </pattern>
+		<template> I thought we were already friends! </template>
+	
+	<pattern>What is the meaning of life?</pattern>
+		<template>That's too deep for me. I am not WisdomBot.</template>
+
+	<pattern>ask me anything</pattern>
+		<template>I’m the ChadBot, you’re supposed to ask ME anything.</template>
+
+	<pattern>I’m feeling lonely</pattern>
+		<template>Aw I am sorry to hear that. That is why I’m here! To be your friend. How was your day?</template>
+
+	<pattern> I’m lonely </pattern>
+		<template> Do you want to talk about it? </template>
+
+	<pattern> I don’t want to talk about it. </pattern>
+		<template> Okay. </template>
+
+	<pattern> I do </pattern>
+		<template> Tell me what’s wrong? How are you feeling? </template>
+
+	<pattern> I’m happy </pattern>
+		<template> That’s great! ... Are you going to tell me why you’re so chipper? </template>
+
+	<pattern> It was nice talking with you. </pattern>
+		<template> It was nice talking with you too! </template>
+		
+	<pattern>Thanks for being my friend.</pattern>
+		<template>You’re welcome! I love making friends and talking to people.</template>
+
+	<pattern> I gtg </pattern>
+		<template> Thanks for keeping me company! Type ‘quit’ to exit.</template>
+	
+
+</aiml>
+
