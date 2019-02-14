@@ -23,14 +23,5 @@ public class Main {
 
     }
 
-    public void handleChadBotResponse(String response) {
-        // TODO: Change next line to handle default chad response once ready
-        if (response == null || response.equals("") || response.equals(" ")) {
-            System.out.println("some default response");
-        } else {
-            System.out.println(response);
-            UserInput.writeInput();
-        }
-    }
 
 }
