@@ -1,20 +1,29 @@
 package chadbot;
-import chadbot.bot.data.Tokenizer;
+import java.util.Scanner;
 
-import java.util.Arrays;
-
+@SuppressWarnings("WeakerAccess")
 public class Main {
 
     public static void main(String[] args) {
-	    System.out.println("Hello World");
-        System.out.println(Arrays.toString(Tokenizer.parseInput("Hello World Ya dirt old bitch. !fadsjhf , Hahahah :     Yoooooooooooooooo")));
+        Main main = new Main();
+        main.run();
     }
 
     public Main() {
-
     }
 
     public void run() {
+        System.out.println("How may I help you? To exit, simply type 'Quit'");
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine().toLowerCase();
+        while (!closeChat(input)) {
+            input = scanner.nextLine().toLowerCase();
 
+        }
+        scanner.close();
+    }
+
+    protected boolean closeChat(String input) {
+        return input.trim().toLowerCase().equals("quit");
     }
 }
