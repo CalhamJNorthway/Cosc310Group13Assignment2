@@ -10,6 +10,7 @@ public class Main {
     }
 
     public Main() {
+        System.out.println("Hidden test");
     }
 
     public void run() {
