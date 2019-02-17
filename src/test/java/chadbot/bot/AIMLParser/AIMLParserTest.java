@@ -18,7 +18,6 @@ class AIMLParserTest {
 
     @Test
     void testCreateParser() {
-        System.out.println(testParser);
         assertTrue(testParser != null);
     }
 

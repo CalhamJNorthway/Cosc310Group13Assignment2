@@ -11,12 +11,13 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class AIMLParser {
     private File AIMLFile;
     private Document doc;
-    private SynonymGroup[] SynonymGroupArr = {};
-    private PatternTemplate[] patternTemplateArr = {};
+    private SynonymGroup[] SynonymGroupArr;
+    private PatternTemplate[] patternTemplateArr;
     private String defaultResponse;
 
     public AIMLParser(File AIMLFile) {
@@ -27,11 +28,12 @@ public class AIMLParser {
     //Parse SynonymGroups:
     private SynonymGroup[] parseSynonymGroupArr(Document doc){
         NodeList groups = doc.getElementsByTagName("synonym-group");
-        SynonymGroup[] sg = {};
+        System.out.println(groups.item(0).getTextContent());
+        SynonymGroup[] sg = new SynonymGroup[groups.getLength()];
         for (int i = 0; i < groups.getLength(); i++) {
             Node group = groups.item(i);
             NodeList synonymList = group.getChildNodes();
-            String[] synonymArr = {};
+            String[] synonymArr = new String[synonymList.getLength()];
             for (int j = 0; j < synonymList.getLength(); j++) {
                 Element synonymElement = (Element) synonymList;
                 String synonym = synonymElement.getTextContent();
@@ -47,7 +49,7 @@ public class AIMLParser {
     private PatternTemplate[] parsePatternTemplate(Document doc){
         NodeList patternArr = doc.getElementsByTagName("pattern");
         NodeList templateArr = doc.getElementsByTagName("template");
-        PatternTemplate[] pt= {};
+        PatternTemplate[] pt= new PatternTemplate[patternArr.getLength()];
         for (int i = 0; i < patternArr.getLength(); i++) {
             String[] pattern = Tokenizer.tokenize(patternArr.item(i).getTextContent());
             String response = templateArr.item(i).getTextContent();
