@@ -5,6 +5,7 @@ import chadbot.bot.data.Tokenizer;
 import chadbot.bot.dictionarytree.DictionaryTree;
 import chadbot.bot.synonyms.SynonymMap;
 
+import java.io.File;
 import java.util.Arrays;
 
 public class ChadBot {
@@ -13,7 +14,7 @@ public class ChadBot {
     private DictionaryTree dictionaryTree;
     private String defaultResponse;
 
-    public ChadBot(String AIMLFileLocation) {
+    public ChadBot(File AIMLFile) {
 
     }
 
