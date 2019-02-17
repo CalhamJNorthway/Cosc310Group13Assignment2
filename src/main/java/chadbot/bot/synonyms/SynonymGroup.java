@@ -1,4 +1,4 @@
-package chadbot.bot.data;
+package chadbot.bot.synonyms;
 
 import java.util.Arrays;
 

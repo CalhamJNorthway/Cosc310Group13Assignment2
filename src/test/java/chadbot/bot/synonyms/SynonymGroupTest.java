@@ -1,7 +1,6 @@
-package chadbot.bot.SynonymGroup;
+package chadbot.bot.synonyms;
 
-import chadbot.bot.data.SynonymGroup;
-import chadbot.bot.data.Tokenizer;
+import chadbot.bot.synonyms.SynonymGroup;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
