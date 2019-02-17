@@ -3,18 +3,28 @@ package chadbot.bot.AIMLParser;
 import chadbot.bot.data.AIMLParser;
 import chadbot.bot.data.PatternTemplate;
 import chadbot.bot.synonyms.SynonymGroup;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AIMLParserTest {
 
-    URL url = this.getClass().getResource("TestAIML.xml");
-    File file = new File(url.getFile());
-    AIMLParser testParser = new AIMLParser(file);
+    URL url;
+    File file;
+    AIMLParser testParser;
+
+
+    @BeforeEach
+    void setUp() {
+        url = this.getClass().getResource("TestAIML.xml");
+        file = new File(url.getFile());
+        testParser = new AIMLParser(file);
+    }
 
     @Test
     void testCreateParser() {

@@ -27,13 +27,15 @@ public class AIMLParser {
     //Parse SynonymGroups:
     private SynonymGroup[] parseSynonymGroupArr(Document doc){
         NodeList groups = doc.getElementsByTagName("synonym-group");
-        SynonymGroup[] sg = {};
+        System.out.println(groups.getLength());
+        SynonymGroup[] sg = new SynonymGroup[groups.getLength()];
         for (int i = 0; i < groups.getLength(); i++) {
-            Node group = groups.item(i);
-            NodeList synonymList = group.getChildNodes();
-            String[] synonymArr = {};
+            Element group = (Element) groups.item(i);
+            NodeList synonymList = group.getElementsByTagName("synonym");
+            String[] synonymArr = new String[synonymList.getLength()];
+
             for (int j = 0; j < synonymList.getLength(); j++) {
-                Element synonymElement = (Element) synonymList;
+                Element synonymElement = (Element) synonymList.item(j);
                 String synonym = synonymElement.getTextContent();
                 synonymArr[j] = synonym;
             }
@@ -47,7 +49,7 @@ public class AIMLParser {
     private PatternTemplate[] parsePatternTemplate(Document doc){
         NodeList patternArr = doc.getElementsByTagName("pattern");
         NodeList templateArr = doc.getElementsByTagName("template");
-        PatternTemplate[] pt= {};
+        PatternTemplate[] pt = new PatternTemplate[patternArr.getLength()];
         for (int i = 0; i < patternArr.getLength(); i++) {
             String[] pattern = Tokenizer.tokenize(patternArr.item(i).getTextContent());
             String response = templateArr.item(i).getTextContent();
@@ -72,11 +74,7 @@ public class AIMLParser {
             this.SynonymGroupArr = parseSynonymGroupArr(doc);
             this.patternTemplateArr = parsePatternTemplate(doc);
             this.defaultResponse = parseDefaultResponse(doc);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ParserConfigurationException | IOException | SAXException e) {
             e.printStackTrace();
         }
     }
