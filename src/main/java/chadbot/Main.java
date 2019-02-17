@@ -1,8 +1,13 @@
 package chadbot;
+import chadbot.bot.ChadBot;
+
+import java.io.File;
+import java.net.URL;
 import java.util.Scanner;
 
 @SuppressWarnings("WeakerAccess")
 public class Main {
+    private ChadBot chadBot;
 
     public static void main(String[] args) {
         Main main = new Main();
@@ -10,7 +15,9 @@ public class Main {
     }
 
     public Main() {
-        System.out.println("Hidden test");
+        URL url = Main.class.getResource("ChatBotResponses.xml");
+        File file = new File(url.getFile());
+        chadBot = new ChadBot(file);
     }
 
     public void run() {
