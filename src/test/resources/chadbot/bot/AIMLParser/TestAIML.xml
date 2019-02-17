@@ -1,0 +1,17 @@
+<aiml>
+	<synonym-group>
+		<synonym>stressful</synonym>
+		<synonym>upsetting</synonym>
+		<synonym>nerve-racking</synonym>
+	</synonym-group>
+
+	<pattern>Hello</pattern>
+	<template>Hi! I'm Chadbot.</template>
+
+	<pattern>Hello this is a longer string</pattern>
+	<template>Hi! I'm Chadbot.</template>
+
+	<default>This is my default!</default>
+
+</aiml>
+
