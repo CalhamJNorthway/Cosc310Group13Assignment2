@@ -23,11 +23,12 @@ public class Main {
     public void run() {
         System.out.println("How may I help you? To exit, simply type 'Quit'");
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine().toLowerCase();
-        while (!closeChat(input)) {
+        String input;
+        do {
             input = scanner.nextLine().toLowerCase();
-
-        }
+            String response = chadBot.getResponse(input);
+            System.out.println(response);
+        }while (!closeChat(input));
         scanner.close();
     }
 

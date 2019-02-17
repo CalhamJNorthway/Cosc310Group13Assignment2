@@ -27,7 +27,6 @@ public class AIMLParser {
     //Parse SynonymGroups:
     private SynonymGroup[] parseSynonymGroupArr(Document doc){
         NodeList groups = doc.getElementsByTagName("synonym-group");
-        System.out.println(groups.getLength());
         SynonymGroup[] sg = new SynonymGroup[groups.getLength()];
         for (int i = 0; i < groups.getLength(); i++) {
             Element group = (Element) groups.item(i);
@@ -36,7 +35,7 @@ public class AIMLParser {
 
             for (int j = 0; j < synonymList.getLength(); j++) {
                 Element synonymElement = (Element) synonymList.item(j);
-                String synonym = synonymElement.getTextContent();
+                String synonym = synonymElement.getTextContent().toLowerCase();
                 synonymArr[j] = synonym;
             }
             SynonymGroup newGroup = new SynonymGroup(synonymArr);
@@ -51,7 +50,8 @@ public class AIMLParser {
         NodeList templateArr = doc.getElementsByTagName("template");
         PatternTemplate[] pt = new PatternTemplate[patternArr.getLength()];
         for (int i = 0; i < patternArr.getLength(); i++) {
-            String[] pattern = Tokenizer.tokenize(patternArr.item(i).getTextContent());
+            String textContent = patternArr.item(i).getTextContent();
+            String[] pattern = Tokenizer.tokenize(textContent.toLowerCase());
             String response = templateArr.item(i).getTextContent();
             PatternTemplate currentTemplate = new PatternTemplate(pattern, response);
             pt[i] = currentTemplate;
@@ -79,11 +79,11 @@ public class AIMLParser {
         }
     }
 
-    public SynonymGroup[] getSynonymGroupArr(){
+    public SynonymGroup[] getSynonymGroups(){
         return this.SynonymGroupArr;
     }
 
-    public PatternTemplate[] getPatternTemplateArr(){
+    public PatternTemplate[] getPatternTemplate(){
         return this.patternTemplateArr;
     }
 

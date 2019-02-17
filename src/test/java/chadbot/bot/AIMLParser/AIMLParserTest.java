@@ -8,34 +8,31 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 import java.net.URL;
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class AIMLParserTest {
 
-    URL url;
-    File file;
-    AIMLParser testParser;
+    private AIMLParser testParser;
 
 
     @BeforeEach
     void setUp() {
-        url = this.getClass().getResource("TestAIML.xml");
-        file = new File(url.getFile());
+        URL url = this.getClass().getResource("TestAIML.xml");
+        File file = new File(url.getFile());
         testParser = new AIMLParser(file);
     }
 
     @Test
     void testCreateParser() {
-        assertTrue(testParser != null);
+        assertNotNull(testParser);
     }
 
     @Test
     void testParseSynonymGroupArr() {
         String[] synonyms = {"stressful", "upsetting", "nerve-racking"};
         SynonymGroup testGroup = new SynonymGroup(synonyms);
-        SynonymGroup responseGroup = testParser.getSynonymGroupArr()[0];
+        SynonymGroup responseGroup = testParser.getSynonymGroups()[0];
         assertArrayEquals(testGroup.getSynonymArray(), responseGroup.getSynonymArray());
     }
 
@@ -44,7 +41,7 @@ class AIMLParserTest {
         String[] pattern = {"Hello"};
         String response = "Hi! I'm Chadbot.";
         PatternTemplate testPattern= new PatternTemplate(pattern, response);
-        PatternTemplate responsePattern = testParser.getPatternTemplateArr()[0];
+        PatternTemplate responsePattern = testParser.getPatternTemplate()[0];
         assertArrayEquals(testPattern.getPattern(), responsePattern.getPattern());
     }
 

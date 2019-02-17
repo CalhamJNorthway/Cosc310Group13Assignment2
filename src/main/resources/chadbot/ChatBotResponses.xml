@@ -53,6 +53,8 @@
 		<synonym>cake</synonym>
 	</synonym-group>
 
+	<default>Sorry, I don't understand this. Can you try again?</default>
+
 	<pattern>Hello</pattern>
 	<template>Hi! I'm Chadbot.</template>
 
@@ -160,6 +162,9 @@
 
 	<pattern>I gtg</pattern>
 	<template>Thanks for keeping me company! Type ‘quit’ to exit.</template>
+
+	<pattern>Quit</pattern>
+	<template>Thanks for the chat, hopefully we will talk soon</template>
 
 </aiml>
 

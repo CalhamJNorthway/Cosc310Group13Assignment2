@@ -1,5 +1,6 @@
 package chadbot.bot;
 
+import chadbot.bot.data.AIMLParser;
 import chadbot.bot.data.TextUtils;
 import chadbot.bot.data.Tokenizer;
 import chadbot.bot.dictionarytree.DictionaryTree;
@@ -15,6 +16,10 @@ public class ChadBot {
     private String defaultResponse;
 
     public ChadBot(File AIMLFile) {
+        AIMLParser parser = new AIMLParser(AIMLFile);
+        defaultResponse = parser.getDefaultResponse();
+        synonyms = new SynonymMap(parser.getSynonymGroups());
+        dictionaryTree = new DictionaryTree(parser.getPatternTemplate());
 
     }
 
@@ -28,7 +33,6 @@ public class ChadBot {
         String[] tokenizedText = Tokenizer.tokenize(input.toLowerCase());
         String[] simplifiedText = simplifySynonyms(tokenizedText);
         String response = dictionaryTree.search(simplifiedText);
-
         return getFinalResponse(response);
     }
 
