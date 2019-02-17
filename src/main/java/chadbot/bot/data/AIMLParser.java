@@ -15,8 +15,8 @@ import java.io.IOException;
 public class AIMLParser {
     private File AIMLFile;
     private Document doc;
-    private SynonymGroup[] SynonymGroupArr = {};
-    private PatternTemplate[] patternTemplateArr = {};
+    private SynonymGroup[] SynonymGroupArr;
+    private PatternTemplate[] patternTemplateArr;
     private String defaultResponse;
 
     public AIMLParser(File AIMLFile) {
