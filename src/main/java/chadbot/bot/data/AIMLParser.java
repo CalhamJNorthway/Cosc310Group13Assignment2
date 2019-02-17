@@ -16,7 +16,7 @@ public class AIMLParser {
     private File AIMLFile;
     private Document doc;
     private SynonymGroup[] SynonymGroupArr = {};
-    private PatternTemplate[] PatternTemplateArr = {};
+    private PatternTemplate[] patternTemplateArr = {};
     private String defaultResponse;
 
     public AIMLParser(File AIMLFile) {
@@ -70,7 +70,7 @@ public class AIMLParser {
             DocumentBuilder builder = factory.newDocumentBuilder();
             this.doc = builder.parse(AIMLFile);
             this.SynonymGroupArr = parseSynonymGroupArr(doc);
-            this.PatternTemplateArr = parsePatternTemplate(doc);
+            this.patternTemplateArr = parsePatternTemplate(doc);
             this.defaultResponse = parseDefaultResponse(doc);
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
@@ -79,6 +79,18 @@ public class AIMLParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
+
+    public SynonymGroup[] getSynonymGroupArr(){
+        return this.SynonymGroupArr;
+    }
+
+    public PatternTemplate[] getPatternTemplateArr(){
+        return this.patternTemplateArr;
+    }
+
+    public String getDefaultResponse(){
+        return this.defaultResponse;
+    }
+
 }
