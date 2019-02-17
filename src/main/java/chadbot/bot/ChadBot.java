@@ -24,7 +24,7 @@ public class ChadBot {
     }
 
     public String getResponse(String input) {
-        String[] tokenizedText = Tokenizer.parseInput(input.toLowerCase());
+        String[] tokenizedText = Tokenizer.tokenize(input.toLowerCase());
         String[] simplifiedText = simplifySynonyms(tokenizedText);
         String response = dictionaryTree.search(simplifiedText);
 

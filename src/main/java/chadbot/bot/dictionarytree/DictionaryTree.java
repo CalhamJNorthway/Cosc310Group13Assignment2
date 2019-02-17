@@ -1,6 +1,6 @@
 package chadbot.bot.dictionarytree;
 
-import chadbot.bot.data.ResponseTemplate;
+import chadbot.bot.data.PatternTemplate;
 
 import java.util.List;
 
@@ -14,16 +14,16 @@ public class DictionaryTree {
     /**
      * Creates a DictionaryTree based on the array of response templates
      */
-    public DictionaryTree(ResponseTemplate[] responseTemplates) {
+    public DictionaryTree(PatternTemplate[] patternTemplates) {
         root = new TreeNode();
-        createTree(responseTemplates);
+        createTree(patternTemplates);
     }
 
     /**
      * Creates a DictionaryTree based on the List of response templates
      */
-    public DictionaryTree(List<ResponseTemplate> responseTemplates) {
-        this(responseTemplates.toArray(new ResponseTemplate[0]));
+    public DictionaryTree(List<PatternTemplate> patternTemplates) {
+        this(patternTemplates.toArray(new PatternTemplate[0]));
     }
 
     /**
@@ -59,8 +59,8 @@ public class DictionaryTree {
     }
 
     //Creates the Dictionary Tree
-    private void createTree(ResponseTemplate[] responseTemplates) {
-        for (ResponseTemplate template : responseTemplates) {
+    private void createTree(PatternTemplate[] patternTemplates) {
+        for (PatternTemplate template : patternTemplates) {
             if(template != null) {
                 insertResponse(template);
             }
@@ -68,8 +68,8 @@ public class DictionaryTree {
     }
 
     //Inserts the ResponseTemplate into the tree
-    private void insertResponse(ResponseTemplate responseTemplate) {
-        String[] prompt = responseTemplate.getPrompt();
+    private void insertResponse(PatternTemplate patternTemplate) {
+        String[] prompt = patternTemplate.getPattern();
 
         //Handles if the prompt is null
         if(prompt == null) {
@@ -84,7 +84,7 @@ public class DictionaryTree {
             if (i != prompt.length - 1) {
                 newNode = new TreeNode(prompt[i]);
             } else {
-                newNode = new TreeNode(prompt[i], responseTemplate.getResponse());
+                newNode = new TreeNode(prompt[i], patternTemplate.getTemplate());
             }
 
             parent = parent.insert(newNode);
