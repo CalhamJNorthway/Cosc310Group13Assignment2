@@ -4,3 +4,4 @@ cp src/main/resources/chadbot/ChatBotResponses.xml target/classes/chadbot
 cd target
 cd classes
 java chadbot.Main
+read -rsp $'Press any key to continue...\n' -n 1 key
