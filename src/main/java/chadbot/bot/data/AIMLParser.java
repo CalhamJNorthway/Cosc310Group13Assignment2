@@ -1,41 +1,84 @@
 package chadbot.bot.data;
 
-public class AIMLParser {
-    private String AIMLFileLocation;
+import chadbot.bot.synonyms.SynonymGroup;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.File;
+import java.io.IOException;
 
-    public AIMLParser(String AIMLFileLocation) {
-        this.AIMLFileLocation = AIMLFileLocation;
+public class AIMLParser {
+    private File AIMLFile;
+    private Document doc;
+    private SynonymGroup[] SynonymGroupArr = {};
+    private PatternTemplate[] PatternTemplateArr = {};
+    private String defaultResponse;
+
+    public AIMLParser(File AIMLFile) {
+        this.AIMLFile = AIMLFile;
+        parseDoc(this.AIMLFile);
     }
 
     //Parse SynonymGroups:
-    //Create a synonym group containing an array of synonyms
-    //Rinse Repeat
-    //Returns Array of SynonymGroups
+    private SynonymGroup[] parseSynonymGroupArr(Document doc){
+        NodeList groups = doc.getElementsByTagName("synonym-group");
+        SynonymGroup[] sg = {};
+        for (int i = 0; i < groups.getLength(); i++) {
+            Node group = groups.item(i);
+            NodeList synonymList = group.getChildNodes();
+            String[] synonymArr = {};
+            for (int j = 0; j < synonymList.getLength(); j++) {
+                Element synonymElement = (Element) synonymList;
+                String synonym = synonymElement.getTextContent();
+                synonymArr[j] = synonym;
+            }
+            SynonymGroup newGroup = new SynonymGroup(synonymArr);
+            sg[i] = newGroup;
+        }
+        return sg;
+    }
 
     //Parse ResponseTemplates:
-    //Get Pattern and Response
-    //Create Array of ResponseTemplates
-    //Return Array of ResponseTemplates
+    private PatternTemplate[] parsePatternTemplate(Document doc){
+        NodeList patternArr = doc.getElementsByTagName("pattern");
+        NodeList templateArr = doc.getElementsByTagName("template");
+        PatternTemplate[] pt= {};
+        for (int i = 0; i < patternArr.getLength(); i++) {
+            String[] pattern = Tokenizer.tokenize(patternArr.item(i).getTextContent());
+            String response = templateArr.item(i).getTextContent();
+            PatternTemplate currentTemplate = new PatternTemplate(pattern, response);
+            pt[i] = currentTemplate;
+        }
+        return pt;
+    }
 
-    //Get Default Response:
-    //If called return default response
-    //FOUND BY TAG OF <Default>
-
-
-    //ITERATE FILE METHOD, USE TRY CATCH WITH SWITCH STATEMENTS:
-    //CHECK IF TAG <AIML> is in file read only between those tags
-    //File AIML
-    //Read.line() "<Default>" parse "Default"
-    //Iterate File
-    //While(File.hasNext()) {
-    //if(tag.equals("pattern"){
-    //String[] prompts
-    //String Response
-    //GetResponseTemplate(prompts, Response);
-    //}
-    //}
+    //Parse Default Response:
+    private String parseDefaultResponse (Document doc){
+        return doc.getElementsByTagName("default").item(0).getTextContent();
+    }
 
 
+    //ITERATE FILE METHOD, USE TRY CATCH:
+    private void parseDoc(File AIMLFile) {
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        try {
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            this.doc = builder.parse(AIMLFile);
+            this.SynonymGroupArr = parseSynonymGroupArr(doc);
+            this.PatternTemplateArr = parsePatternTemplate(doc);
+            this.defaultResponse = parseDefaultResponse(doc);
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-
+    }
 }
