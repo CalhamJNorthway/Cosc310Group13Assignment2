@@ -1,2 +1,4 @@
-java target\classes\chadbot.Main
+cd target
+cd classes
+java chadbot.Main
 PAUSE
