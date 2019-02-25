@@ -7,6 +7,7 @@ import chadbot.bot.dictionarytree.DictionaryTree;
 import chadbot.bot.synonyms.SynonymMap;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.Arrays;
 
 public class ChadBot {
@@ -15,7 +16,7 @@ public class ChadBot {
     private DictionaryTree dictionaryTree;
     private String defaultResponse;
 
-    public ChadBot(File AIMLFile) {
+    public ChadBot(InputStream AIMLFile) {
         AIMLParser parser = new AIMLParser(AIMLFile);
         defaultResponse = parser.getDefaultResponse();
         synonyms = new SynonymMap(parser.getSynonymGroups());

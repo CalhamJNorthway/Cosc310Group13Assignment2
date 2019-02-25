@@ -11,15 +11,16 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class AIMLParser {
-    private File AIMLFile;
+    private InputStream AIMLFile;
     private Document doc;
     private SynonymGroup[] SynonymGroupArr;
     private PatternTemplate[] patternTemplateArr;
     private String defaultResponse;
 
-    public AIMLParser(File AIMLFile) {
+    public AIMLParser(InputStream AIMLFile) {
         this.AIMLFile = AIMLFile;
         parseDoc(this.AIMLFile);
     }
@@ -66,7 +67,7 @@ public class AIMLParser {
 
 
     //ITERATE FILE METHOD, USE TRY CATCH:
-    private void parseDoc(File AIMLFile) {
+    private void parseDoc(InputStream AIMLFile) {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();

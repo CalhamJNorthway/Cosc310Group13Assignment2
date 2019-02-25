@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.io.InputStream;
 import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,9 +19,8 @@ class AIMLParserTest {
 
     @BeforeEach
     void setUp() {
-        URL url = this.getClass().getResource("TestAIML.xml");
-        File file = new File(url.getFile());
-        testParser = new AIMLParser(file);
+        InputStream url = this.getClass().getResourceAsStream("TestAIML.xml");
+        testParser = new AIMLParser(url);
     }
 
     @Test

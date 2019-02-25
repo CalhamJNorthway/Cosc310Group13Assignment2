@@ -1,7 +1,9 @@
 package chadbot;
 import chadbot.bot.ChadBot;
+import sun.security.util.Resources;
 
 import java.io.File;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Scanner;
 
@@ -15,9 +17,8 @@ public class Main {
     }
 
     public Main() {
-        URL url = Main.class.getResource("ChatBotResponses.xml");
-        File file = new File(url.getFile());
-        chadBot = new ChadBot(file);
+        InputStream url = Main.class.getResourceAsStream("ChatBotResponses.xml");
+        chadBot = new ChadBot(url);
     }
 
     public void run() {
