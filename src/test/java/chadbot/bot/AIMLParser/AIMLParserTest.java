@@ -38,11 +38,11 @@ class AIMLParserTest {
 
     @Test
     void testParsePatternTemplateArr() {
-        String[] pattern = {"Hello"};
+        String pattern = "Hello";
         String response = "Hi! I'm Chadbot.";
         PatternTemplate testPattern= new PatternTemplate(pattern, response);
         PatternTemplate responsePattern = testParser.getPatternTemplate()[0];
-        assertArrayEquals(testPattern.getPattern(), responsePattern.getPattern());
+        assertEquals(testPattern.getPattern(), responsePattern.getPattern());
     }
 
     @Test

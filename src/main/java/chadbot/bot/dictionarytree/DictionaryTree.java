@@ -1,6 +1,8 @@
 package chadbot.bot.dictionarytree;
 
 import chadbot.bot.data.PatternTemplate;
+import chadbot.bot.data.WordPatternTemplate;
+import chadbot.bot.data.word.Word;
 
 import java.util.List;
 
@@ -14,7 +16,7 @@ public class DictionaryTree {
     /**
      * Creates a DictionaryTree based on the array of response templates
      */
-    public DictionaryTree(PatternTemplate[] patternTemplates) {
+    public DictionaryTree(WordPatternTemplate[] patternTemplates) {
         root = new TreeNode();
         createTree(patternTemplates);
     }
@@ -22,8 +24,8 @@ public class DictionaryTree {
     /**
      * Creates a DictionaryTree based on the List of response templates
      */
-    public DictionaryTree(List<PatternTemplate> patternTemplates) {
-        this(patternTemplates.toArray(new PatternTemplate[0]));
+    public DictionaryTree(List<WordPatternTemplate> patternTemplates) {
+        this(patternTemplates.toArray(new WordPatternTemplate[0]));
     }
 
     /**
@@ -32,7 +34,7 @@ public class DictionaryTree {
      * @param prompt the prompt that is used to search the DictionaryTree
      * @return The response associated with a leaf node if found. Otherwise returns {@link DictionaryTree#NO_RESPONSE}
      */
-    public String search(String[] prompt) {
+    public String search(Word[] prompt) {
         if(prompt == null) {
             return NO_RESPONSE;
         }
@@ -40,8 +42,20 @@ public class DictionaryTree {
         TreeNode node = root;
 
         for (int i = 0; i < prompt.length; i++) {
-            String word = prompt[i];
-            node = node.getChild(word);
+            Word word = prompt[i];
+            TreeNode nodeTemp = node.getChild(word);
+
+            if(nodeTemp == null) {
+                for (String synonym : word.getSynonyms()) {
+                    Word synonymWord = new Word(synonym, word.getPartOfSpeechTag());
+                    nodeTemp = node.getChild(synonymWord);
+                    if(nodeTemp != null) {
+                        break;
+                    }
+                }
+            }
+
+            node = nodeTemp;
 
             //Check if there is a new node, breaks out of the loop if there is no new node
             if(node == null) {
@@ -59,8 +73,8 @@ public class DictionaryTree {
     }
 
     //Creates the Dictionary Tree
-    private void createTree(PatternTemplate[] patternTemplates) {
-        for (PatternTemplate template : patternTemplates) {
+    private void createTree(WordPatternTemplate[] patternTemplates) {
+        for (WordPatternTemplate template : patternTemplates) {
             if(template != null) {
                 insertResponse(template);
             }
@@ -68,8 +82,8 @@ public class DictionaryTree {
     }
 
     //Inserts the ResponseTemplate into the tree
-    private void insertResponse(PatternTemplate patternTemplate) {
-        String[] prompt = patternTemplate.getPattern();
+    private void insertResponse(WordPatternTemplate patternTemplate) {
+        Word[] prompt = patternTemplate.getPattern();
 
         //Handles if the prompt is null
         if(prompt == null) {
