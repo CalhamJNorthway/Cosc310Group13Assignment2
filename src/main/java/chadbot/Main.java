@@ -1,14 +1,12 @@
 package chadbot;
 import chadbot.bot.ChadBot;
-import sun.security.util.Resources;
 
-import java.io.File;
 import java.io.InputStream;
-import java.net.URL;
 import java.util.Scanner;
 
 @SuppressWarnings("WeakerAccess")
 public class Main {
+    public static boolean DEBUG = false;
     private ChadBot chadBot;
 
     public static void main(String[] args) {

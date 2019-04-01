@@ -1,5 +1,7 @@
 package chadbot.bot.dictionarytree;
 
+import chadbot.bot.data.word.Word;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -7,10 +9,10 @@ import java.util.List;
 public class TreeNode {
 
     private boolean isRoot;
-    private String word;
+    private Word word;
     private List<String> responses;
     private TreeNode parent;
-    private HashMap<String, TreeNode> children;
+    private HashMap<Word, TreeNode> children;
 
     public TreeNode() {
         this.isRoot = true;
@@ -18,13 +20,13 @@ public class TreeNode {
         responses = new ArrayList<>();
     }
 
-    public TreeNode(String word) {
+    public TreeNode(Word word) {
         this();
         this.isRoot = false;
         this.word = word;
     }
 
-    public TreeNode(String word, String response) {
+    public TreeNode(Word word, String response) {
         this(word);
         responses.add(response);
     }
@@ -49,7 +51,7 @@ public class TreeNode {
     /**
      * Gets the word associated with this node
      */
-    public String getWord() {
+    public Word getWord() {
         return word;
     }
 
@@ -91,11 +93,11 @@ public class TreeNode {
      * @param word the associated word
      * @return the child treenode, null if no child is found
      */
-    protected TreeNode getChild(String word) {
+    protected TreeNode getChild(Word word) {
         return children.get(word);
     }
 
-    protected HashMap<String, TreeNode> getChildren() {
+    protected HashMap<Word, TreeNode> getChildren() {
         return children;
     }
 
