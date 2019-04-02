@@ -19,3 +19,12 @@ Note: You must build the project first for the bot to be ran
 ##### Steps to Run Chad Bot on Windows
 1. run ./RunAppWindows.bat in your terminal or click on RunAppWindows.bat
 
+## Included Features
+1. Synonym recognition
+ - 
+ 
+2. POS Tagging
+ - 
+ 
+3. Spell checking
+ - 

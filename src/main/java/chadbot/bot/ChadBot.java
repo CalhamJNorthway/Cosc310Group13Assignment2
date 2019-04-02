@@ -1,9 +1,13 @@
 package chadbot.bot;
 
-import chadbot.bot.data.AIMLParser;
-import chadbot.bot.data.TextUtils;
-import chadbot.bot.data.Tokenizer;
+import chadbot.Main;
+import chadbot.bot.data.*;
+import chadbot.bot.data.word.PartOfSpeechTag;
+import chadbot.bot.data.word.Word;
 import chadbot.bot.dictionarytree.DictionaryTree;
+import chadbot.bot.interpreter.Interpreter;
+import chadbot.bot.interpreter.PartOfSpeechTransformer;
+import chadbot.bot.interpreter.SynonymTransformer;
 import chadbot.bot.synonyms.SynonymMap;
 
 import java.io.File;
@@ -15,15 +19,27 @@ public class ChadBot {
     private SynonymMap synonyms;
     private DictionaryTree dictionaryTree;
     private String defaultResponse;
+    private Interpreter interpreter;
 
     public ChadBot(InputStream AIMLFile) {
+        interpreter = new Interpreter();
+        PartOfSpeechTransformer posTransformer = new PartOfSpeechTransformer("en-pos-maxent.bin");
+        SynonymTransformer synonymTransformer = new SynonymTransformer("dictPrinceton");
+
         AIMLParser parser = new AIMLParser(AIMLFile);
         defaultResponse = parser.getDefaultResponse();
-        synonyms = new SynonymMap(parser.getSynonymGroups());
-        dictionaryTree = new DictionaryTree(parser.getPatternTemplate());
+
+        interpreter.addWordTransformer(posTransformer);
+
+        PatternTemplate[] patternTemplates = parser.getPatternTemplate();
+        WordPatternTemplate[] interpretedPatternTemplate = interpretPatternTemplate(patternTemplates);
+        dictionaryTree = new DictionaryTree(interpretedPatternTemplate);
+
+        interpreter.addWordTransformer(synonymTransformer);
 
     }
 
+    @Deprecated
     protected ChadBot(SynonymMap synonyms, DictionaryTree dictionaryTree, String defaultResponse) {
         this.synonyms = synonyms;
         this.dictionaryTree = dictionaryTree;
@@ -31,10 +47,30 @@ public class ChadBot {
     }
 
     public String getResponse(String input) {
-        String[] tokenizedText = Tokenizer.tokenize(input.toLowerCase());
-        String[] simplifiedText = simplifySynonyms(tokenizedText);
-        String response = dictionaryTree.search(simplifiedText);
+        Word[] interpretedText = interpreter.interpretSentence(input);
+        printInterpretedTextDebug(interpretedText);
+
+        String response = dictionaryTree.search(interpretedText);
         return getFinalResponse(response);
+    }
+
+    private WordPatternTemplate[] interpretPatternTemplate(PatternTemplate[] templates) {
+        WordPatternTemplate[] interpretedPatternTemplate = new WordPatternTemplate[templates.length];
+        for (int i = 0; i < templates.length; i++) {
+            Word[] words = interpreter.interpretSentence(templates[i].getPattern());
+            interpretedPatternTemplate[i] = new WordPatternTemplate(words, templates[i].getTemplate());
+        }
+
+        return interpretedPatternTemplate;
+    }
+
+    private void printInterpretedTextDebug(Word[] words) {
+        if(Main.DEBUG) {
+            System.out.println("[Word{\t");
+            for (Word word : words) {
+                System.out.println("\t"+word);
+            }
+        }
     }
 
     /**
@@ -42,6 +78,7 @@ public class ChadBot {
      * @param textToSimplify the text that is to be simplified
      * @return the text after the synonyms have been replaced
      */
+    @Deprecated
     private String[] simplifySynonyms(String[] textToSimplify) {
         String[] simplifiedText = Arrays.copyOf(textToSimplify, textToSimplify.length);
         for (int i = 0; i < textToSimplify.length; i++) {

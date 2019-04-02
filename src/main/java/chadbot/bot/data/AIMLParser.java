@@ -52,9 +52,8 @@ public class AIMLParser {
         PatternTemplate[] pt = new PatternTemplate[patternArr.getLength()];
         for (int i = 0; i < patternArr.getLength(); i++) {
             String textContent = patternArr.item(i).getTextContent();
-            String[] pattern = Tokenizer.tokenize(textContent.toLowerCase());
             String response = templateArr.item(i).getTextContent();
-            PatternTemplate currentTemplate = new PatternTemplate(pattern, response);
+            PatternTemplate currentTemplate = new PatternTemplate(textContent, response);
             pt[i] = currentTemplate;
         }
         return pt;

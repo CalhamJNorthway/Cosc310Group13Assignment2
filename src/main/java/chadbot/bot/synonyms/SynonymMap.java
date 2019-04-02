@@ -2,6 +2,7 @@ package chadbot.bot.synonyms;
 
 import java.util.HashMap;
 
+@Deprecated
 public class SynonymMap {
     private HashMap<String, SynonymGroup> table;
 

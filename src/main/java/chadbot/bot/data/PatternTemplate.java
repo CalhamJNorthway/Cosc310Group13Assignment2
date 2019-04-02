@@ -1,8 +1,9 @@
 package chadbot.bot.data;
 
+
 public class PatternTemplate {
 
-    private String[] pattern;
+    private String pattern;
     private String template;
 
     /**
@@ -10,7 +11,7 @@ public class PatternTemplate {
      * @param pattern The sentence after it has been tokenized that the bot should recognize to produce a template
      * @param template The template that the bot should produce based on the pattern
      */
-    public PatternTemplate(String[] pattern, String template) {
+    public PatternTemplate(String pattern, String template) {
         this.pattern = pattern;
         this.template = template;
     }
@@ -19,7 +20,7 @@ public class PatternTemplate {
      * Gets the sentence broken up in words that the bot should recognize to produce a template
      * @return A String[] that is ordered from the first word in the sentence to the last word
      */
-    public String[] getPattern() {
+    public String getPattern() {
         return pattern;
     }
 
