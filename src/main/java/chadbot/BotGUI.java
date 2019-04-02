@@ -21,7 +21,7 @@ public class BotGUI extends Frame{
         this.panel = new JPanel();
         this.textInput = new JTextField(30);
         this.responseArea = new JTextArea(30,35);
-
+        this.responseArea.setLineWrap(true);
         this.scrollyPollyOlly = new JScrollPane(responseArea);
         this.scrollBoi = scrollyPollyOlly.getVerticalScrollBar();
 
