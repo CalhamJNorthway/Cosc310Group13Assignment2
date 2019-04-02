@@ -55,13 +55,12 @@ public class Word {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Word word1 = (Word) o;
-        return word.equals(word1.word) &&
-                posTag == word1.posTag;
+        return word.equals(word1.word);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(word, posTag);
+        return Objects.hash(word);
     }
 
     @Override

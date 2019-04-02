@@ -1,9 +1,11 @@
 package chadbot.bot.dictionarytree;
 
+import chadbot.bot.ChadBot;
 import chadbot.bot.data.PatternTemplate;
 import chadbot.bot.data.WordPatternTemplate;
 import chadbot.bot.data.word.Word;
 
+import java.util.Arrays;
 import java.util.List;
 
 @SuppressWarnings("WeakerAccess")
@@ -84,6 +86,8 @@ public class DictionaryTree {
     //Inserts the ResponseTemplate into the tree
     private void insertResponse(WordPatternTemplate patternTemplate) {
         Word[] prompt = patternTemplate.getPattern();
+
+        ChadBot.printInterpretedTextDebug(prompt);
 
         //Handles if the prompt is null
         if(prompt == null) {

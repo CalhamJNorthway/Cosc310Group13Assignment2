@@ -7,9 +7,11 @@ import javax.swing.plaf.metal.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.InputStream;
+import java.util.Scanner;
 
 @SuppressWarnings("WeakerAccess")
 public class Main extends Frame {
+    public static boolean DEBUG = true;
     private ChadBot chadBot;
     private BotGUI gui;
 
@@ -19,7 +21,6 @@ public class Main extends Frame {
     }
 
     public Main() {
-
         InputStream url = Main.class.getResourceAsStream("ChatBotResponses.xml");
         chadBot = new ChadBot(url);
         gui = new BotGUI();
@@ -54,11 +55,6 @@ public class Main extends Frame {
 
         });
     }
-
-    // System.out.println(response);
-
-    // String response = chadBot.getResponse(userInput);
-    // System.out.println(response);
 
     protected boolean closeChat(String input) {
         return input.trim().toLowerCase().equals("quit");

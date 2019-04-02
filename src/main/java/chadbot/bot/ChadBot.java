@@ -7,6 +7,7 @@ import chadbot.bot.data.word.Word;
 import chadbot.bot.dictionarytree.DictionaryTree;
 import chadbot.bot.interpreter.Interpreter;
 import chadbot.bot.interpreter.PartOfSpeechTransformer;
+import chadbot.bot.interpreter.SpellCheck;
 import chadbot.bot.interpreter.SynonymTransformer;
 import chadbot.bot.synonyms.SynonymMap;
 
@@ -28,15 +29,18 @@ public class ChadBot {
 
         AIMLParser parser = new AIMLParser(AIMLFile);
         defaultResponse = parser.getDefaultResponse();
-
+        SpellCheck check = new SpellCheck();
         interpreter.addWordTransformer(posTransformer);
+        interpreter.addWordTransformer(check);
 
         PatternTemplate[] patternTemplates = parser.getPatternTemplate();
         WordPatternTemplate[] interpretedPatternTemplate = interpretPatternTemplate(patternTemplates);
         dictionaryTree = new DictionaryTree(interpretedPatternTemplate);
 
-        interpreter.addWordTransformer(synonymTransformer);
+        interpreter.removeWordTransformer(check);
 
+        interpreter.addWordTransformer(synonymTransformer);
+        interpreter.addWordTransformer(check);
     }
 
     @Deprecated
@@ -64,7 +68,7 @@ public class ChadBot {
         return interpretedPatternTemplate;
     }
 
-    private void printInterpretedTextDebug(Word[] words) {
+    public static void printInterpretedTextDebug(Word[] words) {
         if(Main.DEBUG) {
             System.out.println("[Word{\t");
             for (Word word : words) {
