@@ -21,10 +21,6 @@ Note: You must build the project first for the bot to be ran
 
 ## Included Features
 1. Synonym recognition
- - 
- 
 2. POS Tagging
- - 
- 
 3. Spell checking
- - 
+4. A beautiful MS-98 GUI
