@@ -21,7 +21,7 @@ Note: You must build the project first for the bot to be ran
 
 ## Included Features
 1. Synonym recognition
-- Using hash tables input words are compared against a variety of possible synonyms to condense inputs for Chad's intellectual level.
+- Using WordNet input words are compared against a variety of possible synonyms to condense inputs for Chad's intellectual level.
 2. POS Tagging
 - Splitting and identifying each word in a scentence to allow our bot to understand the sentence structure more clearly. This makes Chad's responses more "human" in nature.
 3. Spell checking
