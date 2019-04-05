@@ -19,6 +19,12 @@ Note: You must build the project first for the bot to be ran
 ##### Steps to Run Chad Bot on Windows
 1. run ./RunAppWindows.bat in your terminal or click on RunAppWindows.bat
 
+## How to set up libraries
+1. Navigate to the project structure editor in your IDE
+2. Add all three opennlp files to one library
+3. Add the edu.mit file to another library
+4. Save your changes and rebuild the project
+
 ## Included Features
 1. Synonym recognition
 - Using WordNet input words are compared against a variety of possible synonyms to condense inputs for Chad's intellectual level.
