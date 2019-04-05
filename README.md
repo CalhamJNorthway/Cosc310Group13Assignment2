@@ -21,9 +21,10 @@ Note: You must build the project first for the bot to be ran
 
 ## How to set up libraries
 1. Navigate to the project structure editor in your IDE
-2. Add all three opennlp files to one library
-3. Add the edu.mit file to another library
-4. Save your changes and rebuild the project
+2. The necesssary files are located under Cosc310Group13Assignment2/Libraries
+3. Add all three opennlp files to one library
+4. Add the edu.mit file to another library
+5. Save your changes and rebuild the project
 
 ## Included Features
 1. Synonym recognition
